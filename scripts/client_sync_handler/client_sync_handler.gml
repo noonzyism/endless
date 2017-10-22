@@ -13,9 +13,10 @@ var _x			= _values[2];
 var _y			= _values[3];
 var _xspeed		= _values[4];
 var _yspeed		= _values[5];
-var _shooting	= _values[6];
-var _aimx		= _values[7];
-var _aimy		= _values[8];
+var _weapon		= _values[6];
+var _shooting	= _values[7];
+var _aimx		= _values[8];
+var _aimy		= _values[9];
 
 //setting the position from server unconditionally causes the player to stutter a bit since the received position is a couple ms outdated
 //in the future, we should consider having a synchronized match clock between all and pass a timestamp in this sync msg
@@ -42,7 +43,7 @@ if (_id == obj_client.clientId) {
 else if (_id == 0) {
 	show_debug_message("Client received host sync: host position [" + string(_x) + ", " + string(_y) + "]");
 	
-	if (peers[0, 0] == -1) {
+	if (obj_client.peers[0, 0] == -1) {
 		obj_client.peers[0, 0] = instance_create_depth(_x, _y, 100, obj_peer);
 		//TODO: send usernames to clients (maybe create a packet that's sent once to all peers notifying player join)
 		//for now we just check if we're getting an update about a player for the first time
@@ -65,29 +66,38 @@ else if (_id == 0) {
 	obj_client.peers[0, 0].aimx = _aimx;
 	obj_client.peers[0, 0].aimy = _aimy;
 	
+	if (obj_client.peers[0, 0].weapon != _weapon) {
+		weapon_switch(obj_client.peers[0, 0]);
+	}
 	obj_client.peers[0, 0].shooting = _shooting;
 	
 	obj_client.peers[0, 0].hp = _hp;
 }
 else { //other peer
-	if (peers[_id, 0] == -1) {
+	if (obj_client.peers[_id, 0] == -1) {
 		obj_client.peers[_id, 0] = instance_create_depth(_x, _y, 100, obj_peer);
 		//TODO: send usernames to clients (maybe create a packet that's sent once to all peers notifying player join)
 		//for now we just check if we're getting an update about a player for the first time
 		//obj_client.peers[i, 1] = _username;
 	}
 	
-	obj_client.peers[_id, 0].x = _x;
-	obj_client.peers[_id, 0].y = _y;
+	var peer = obj_client.peers[_id, 0];
 	
-	obj_client.peers[_id, 0].xspeed = _xspeed;
-	obj_client.peers[_id, 0].yspeed = _yspeed;
-	obj_client.peers[_id, 0].image_angle = point_direction(_x, _y, _aimx, _aimy);
+	peer.x = _x;
+	peer.y = _y;
 	
-	obj_client.peers[_id, 0].aimx = _aimx;
-	obj_client.peers[_id, 0].aimy = _aimy;
+	peer.xspeed = _xspeed;
+	peer.yspeed = _yspeed;
+	peer.image_angle = point_direction(_x, _y, _aimx, _aimy);
 	
-	obj_client.peers[_id, 0].shooting = _shooting;
-	obj_client.peers[_id, 0].hp = _hp;
+	peer.aimx = _aimx;
+	peer.aimy = _aimy;
+	
+	
+	if (peer.weapon != _weapon) {
+		weapon_switch(peer);
+	}
+	peer.shooting = _shooting;
+	peer.hp = _hp;
 }
 

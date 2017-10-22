@@ -18,7 +18,7 @@ var peer = obj_server.clients[_cid, 0];
 show_debug_message("Server received: [id=" + string(_cid) + " | shooting=" + string(_shooting) + "| mouse x,y=" + string(_aimx) + ", " + string(_aimy) + "]");
 
 if (peer.weapon != _weapon) {
-	weapon_switch(_cid);
+	weapon_switch(peer);
 }
 
 peer.shooting = _shooting;
