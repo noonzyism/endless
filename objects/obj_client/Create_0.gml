@@ -7,9 +7,10 @@ sent_shooting = false;
 sent_weapon = -1;
 sent_angle = 999;
 
+//some record keeping for peers in the match - peers[0] is used for the host
 for (var i = 0; i < 9; i ++) {
 	peers[i, 0] = -1; //peer instance id
-	//peers[i, 1] = ""; //username
+	peers[i, 1] = ""; //username
 }
 
 session = netplay_create_session();
@@ -24,6 +25,7 @@ netplay_add_packet_handler(session, Packets.Echo, example_echo_client_handler);
 netplay_add_packet_handler(session, Packets.Increment, example_increment_client_handler);
 netplay_add_packet_handler(session, Packets.SYNC, client_sync_handler);
 netplay_add_packet_handler(session, Packets.ACCEPT, client_accept_handler);
+netplay_add_packet_handler(session, Packets.MATCH, client_match_handler);
 
 
 username = get_string("Enter a username: ", "jones");

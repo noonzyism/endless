@@ -6,5 +6,6 @@ enum Packets {
 	OP_SHOOT,
 	SYNC,
 	JOIN,
-	ACCEPT
+	ACCEPT,
+	MATCH
 }

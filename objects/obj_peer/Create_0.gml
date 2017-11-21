@@ -11,3 +11,12 @@ cooldown = false;
 
 aimx = 0;
 aimy = 0;
+
+username = "Player";
+
+//match-related variables
+team = true; //team? boolean (true = red, false = blue)
+matchscore = 0;  //score
+kills = 0;  //kills
+deaths = 0;  //deaths
+objhold = false;  //holding objective? boolean

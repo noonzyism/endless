@@ -22,24 +22,23 @@ var _aimy		= _values[9];
 //in the future, we should consider having a synchronized match clock between all and pass a timestamp in this sync msg
 //so the player could then calculate if the position is in sync or not and make adjustments only when necessary
 //as a workaround, for now we'll just ignore the server's correction if we're only slightly off (which works fine too)
-//choosing 11 because it's one over twice the speed of the player movement in one step
 //TODO: still a little finnicky (adjustments happen rarely now, but when they do, they take a couple stutters to get resolved)
 
 //self state
 if (_id == obj_client.clientId) {
 	show_debug_message("Client received host sync: client position [" + string(_x) + ", " + string(_y) + "]");
-	if abs(obj_player.x - _x) > 11 {
+	if abs(obj_player.x - _x) > (obj_player.velocity * 2) + 1 {
 		obj_player.x = _x;
 	}
 
-	if abs(obj_player.y - _y) > 11 {
+	if abs(obj_player.y - _y) > (obj_player.velocity * 2) + 1 {
 		obj_player.y = _y;
 	}
 	
 	//hp is fully dictated by server, any local calculation (no matter how "close" it is) gets overwritten by this
 	obj_player.hp = _hp;
 }
-//server state
+//server state - TODO: consolidate code here - these logic blocks for both host and peer IDs effectively do the same exact thing (update some peer instance)
 else if (_id == 0) {
 	show_debug_message("Client received host sync: host position [" + string(_x) + ", " + string(_y) + "]");
 	
@@ -50,11 +49,11 @@ else if (_id == 0) {
 		//obj_client.peers[i, 1] = _username;
 	}
 	
-	if abs(obj_client.peers[0, 0].x - _x) > 11 {
+	if abs(obj_client.peers[0, 0].x - _x) > (obj_player.velocity * 2) + 1 {
 		obj_client.peers[0, 0].x = _x;
 	}
 
-	if abs(obj_client.peers[0, 0].y - _y) > 11 {
+	if abs(obj_client.peers[0, 0].y - _y) > (obj_player.velocity * 2) + 1 {
 		obj_client.peers[0, 0].y = _y;
 	}
 	

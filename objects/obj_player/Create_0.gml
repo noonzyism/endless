@@ -12,6 +12,13 @@ shooting = false;
 weapon = Weapons.ASSAULT_RIFLE;
 cooldown = false;
 
+//match-related variables
+team = true; //team? boolean (true = red, false = blue)
+matchscore = 0;
+kills = 0;
+deaths = 0;
+objhold = false; //holding objective? boolean
+
 hp = 100;
 
 //collision-related vars
