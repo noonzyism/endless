@@ -43,40 +43,40 @@ else if (_id == 0) {
 	show_debug_message("Client received host sync: host position [" + string(_x) + ", " + string(_y) + "]");
 	
 	//create an instance of this peer if it hasn't already been done
-	if (obj_client.peers[0, 0] == -1) {
-		obj_client.peers[0, 0] = instance_create_depth(_x, _y, 100, obj_peer);
+	if (obj_client.peers[0] == -1) {
+		obj_client.peers[0] = instance_create_depth(_x, _y, 100, obj_peer);
 	}
 	
-	if abs(obj_client.peers[0, 0].x - _x) > (obj_player.velocity * 2) + 1 {
-		obj_client.peers[0, 0].x = _x;
+	if abs(obj_client.peers[0].x - _x) > (obj_player.velocity * 2) + 1 {
+		obj_client.peers[0].x = _x;
 	}
 
-	if abs(obj_client.peers[0, 0].y - _y) > (obj_player.velocity * 2) + 1 {
-		obj_client.peers[0, 0].y = _y;
+	if abs(obj_client.peers[0].y - _y) > (obj_player.velocity * 2) + 1 {
+		obj_client.peers[0].y = _y;
 	}
 	
-	obj_client.peers[0, 0].xspeed = _xspeed;
-	obj_client.peers[0, 0].yspeed = _yspeed;
+	obj_client.peers[0].xspeed = _xspeed;
+	obj_client.peers[0].yspeed = _yspeed;
 	
-	obj_client.peers[0, 0].image_angle = point_direction(_x, _y, _aimx, _aimy);
+	obj_client.peers[0].image_angle = point_direction(_x, _y, _aimx, _aimy);
 	
-	obj_client.peers[0, 0].aimx = _aimx;
-	obj_client.peers[0, 0].aimy = _aimy;
+	obj_client.peers[0].aimx = _aimx;
+	obj_client.peers[0].aimy = _aimy;
 	
-	if (obj_client.peers[0, 0].weapon != _weapon) {
-		weapon_switch(obj_client.peers[0, 0]);
+	if (obj_client.peers[0].weapon != _weapon) {
+		weapon_switch(obj_client.peers[0]);
 	}
-	obj_client.peers[0, 0].shooting = _shooting;
+	obj_client.peers[0].shooting = _shooting;
 	
-	obj_client.peers[0, 0].hp = _hp;
+	obj_client.peers[0].hp = _hp;
 }
 else { //other peer
 	//create an instance of this peer if it hasn't already been done
-	if (obj_client.peers[_id, 0] == -1) {
-		obj_client.peers[_id, 0] = instance_create_depth(_x, _y, 100, obj_peer);
+	if (obj_client.peers[_id] == -1) {
+		obj_client.peers[_id] = instance_create_depth(_x, _y, 100, obj_peer);
 	}
 	
-	var peer = obj_client.peers[_id, 0];
+	var peer = obj_client.peers[_id];
 	
 	peer.x = _x;
 	peer.y = _y;

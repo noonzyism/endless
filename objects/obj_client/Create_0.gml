@@ -7,10 +7,9 @@ sent_shooting = false;
 sent_weapon = -1;
 sent_angle = 999;
 
-//some record keeping for peers in the match - peers[0] is used for the host
+//maps client IDs to instance IDs - peers[0] is used for the host
 for (var i = 0; i < 9; i ++) {
-	peers[i, 0] = -1; //peer instance id
-	peers[i, 1] = ""; //username
+	peers[i] = -1; //peer instance id
 }
 
 session = netplay_create_session();

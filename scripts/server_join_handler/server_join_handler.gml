@@ -26,14 +26,12 @@ var client_id = i;
 
 show_debug_message("Server received join request: [" + string(obj_server.clients[client_id, 1]) + ", " + string(client_id) + "]");
 
-
-netplay_send(_session, _socket, Packets.ACCEPT, client_id);
-
-
 //set and send out match info for this client to all clients
 client_instance = obj_server.clients[i, 0];
 client_instance.team = (client_id % 2); //for now this is just a way to alternate which team clients get assigned to
 client_instance.username = _username;
+
+netplay_send(_session, _socket, Packets.ACCEPT, client_id, client_instance.team);
 
 //tell all clients about the newly connected client match info
 broadcast_match(_session, client_id);

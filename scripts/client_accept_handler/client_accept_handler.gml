@@ -6,8 +6,10 @@ var _session   = argument[0],
     _packet_id = argument[4],
     _values    = argument[5];
 
-var _id = _values[0];
+var _id		= _values[0];
+var _team	= _values[1];
 
 obj_client.clientId = _id;
+obj_player.team = _team;
 
-show_debug_message("Client received id from server: " + string(obj_client.clientId));
+show_debug_message("Client received id and team from server: client #" + string(obj_client.clientId) + " (team " + string(obj_player.team) + ")");

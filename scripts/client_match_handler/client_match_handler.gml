@@ -35,11 +35,11 @@ else {
 	show_debug_message("Client received match update for some peer");
 	
 	//create an instance of this peer if it hasn't already been done
-	if (obj_client.peers[_id, 0] == -1) {
-		obj_client.peers[_id, 0] = instance_create_depth(32, 32, 100, obj_peer);
+	if (obj_client.peers[_id] == -1) {
+		obj_client.peers[_id] = instance_create_depth(32, 32, 100, obj_peer);
 	}
 	
-	var peer = obj_client.peers[_id, 0]; //get this peer's local instance id
+	var peer = obj_client.peers[_id]; //get this peer's local instance id
 	peer.username = _username;
 	peer.team	= _team;
 	peer.matchscore = _score;
