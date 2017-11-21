@@ -410,7 +410,7 @@
             "Key": "63b2d6d5-a4bf-4c2d-a2b2-81d1c9e26d5d",
             "Value": {
                 "id": "16eb5775-9590-474f-84bc-75a1524a9b17",
-                "resourcePath": "sprites\\sprite5\\sprite5.yy",
+                "resourcePath": "sprites\\spr_greenguy\\spr_greenguy.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -599,6 +599,14 @@
             }
         },
         {
+            "Key": "928b9cb3-b343-4b84-bf8d-f9f9c3e1bfd0",
+            "Value": {
+                "id": "c560eea3-027d-4e5a-9be7-0fe696cb7705",
+                "resourcePath": "scripts\\flood_match\\flood_match.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "93b1ca4c-8c1e-4f80-a9e6-bfe422708ae0",
             "Value": {
                 "id": "6f1b67ab-959c-448b-a5ef-9ba939ea328e",
@@ -660,6 +668,14 @@
                 "id": "682c532c-ff13-40a2-ad91-18b5cf56e9ee",
                 "resourcePath": "scripts\\netplay_async\\netplay_async.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ac2d6f2a-2a05-4e41-b17e-87f414228c75",
+            "Value": {
+                "id": "a06374b8-8cc6-4111-bd77-d39d027b50ff",
+                "resourcePath": "sprites\\spr_redguy\\spr_redguy.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -874,7 +890,7 @@
             "Key": "ed60999b-5368-4254-a14a-67857629660b",
             "Value": {
                 "id": "932e83dc-0faf-422b-945f-67df4f1c4605",
-                "resourcePath": "sprites\\sprite0\\sprite0.yy",
+                "resourcePath": "sprites\\spr_blueguy\\spr_blueguy.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1005,7 +1021,8 @@
         "ee385329-b041-4990-8084-5f7d57bc0472",
         "4a4d7e04-e1d0-4a9f-9139-4bcfcc415fd1",
         "d8231748-7e5e-44f5-8a27-8c5c93ff15ff",
-        "8f79f27c-02e7-47ed-90d8-96ba91d45787"
+        "8f79f27c-02e7-47ed-90d8-96ba91d45787",
+        "928b9cb3-b343-4b84-bf8d-f9f9c3e1bfd0"
     ],
     "tutorial": ""
 }

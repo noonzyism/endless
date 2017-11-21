@@ -35,6 +35,8 @@ client_instance = obj_server.clients[i, 0];
 client_instance.team = (client_id % 2); //for now this is just a way to alternate which team clients get assigned to
 client_instance.username = _username;
 
-var team = (client_id % 2); //for now this is just a way to alternate which team clients get assigned to
-
+//tell all clients about the newly connected client match info
 broadcast_match(_session, client_id);
+
+//tell newly connected client about all clients match info (including self)
+flood_match(_session, _socket);

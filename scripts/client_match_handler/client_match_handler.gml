@@ -23,10 +23,22 @@ if (_id == obj_client.clientId) {
 	obj_player.kills = _kills;
 	obj_player.deaths = _deaths;
 	obj_player.objhold = _objhold;
+	if (obj_player.team == 1) {
+		obj_player.sprite_index = spr_blueguy;
+	}
+	else {
+		obj_player.sprite_index = spr_redguy;
+	}
 }
 
 else {
 	show_debug_message("Client received match update for some peer");
+	
+	//create an instance of this peer if it hasn't already been done
+	if (obj_client.peers[_id, 0] == -1) {
+		obj_client.peers[_id, 0] = instance_create_depth(32, 32, 100, obj_peer);
+	}
+	
 	var peer = obj_client.peers[_id, 0]; //get this peer's local instance id
 	peer.username = _username;
 	peer.team	= _team;
@@ -34,4 +46,10 @@ else {
 	peer.kills = _kills;
 	peer.deaths = _deaths;
 	peer.objhold = _objhold;
+	if (peer.team == 1) {
+		peer.sprite_index = spr_blueguy;
+	}
+	else {
+		peer.sprite_index = spr_redguy;
+	}
 }

@@ -15,7 +15,7 @@ aimy = 0;
 username = "Player";
 
 //match-related variables
-team = true; //team? boolean (true = red, false = blue)
+team = true; //team? boolean (true = blue, false = red)
 matchscore = 0;  //score
 kills = 0;  //kills
 deaths = 0;  //deaths

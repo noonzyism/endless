@@ -42,11 +42,9 @@ if (_id == obj_client.clientId) {
 else if (_id == 0) {
 	show_debug_message("Client received host sync: host position [" + string(_x) + ", " + string(_y) + "]");
 	
+	//create an instance of this peer if it hasn't already been done
 	if (obj_client.peers[0, 0] == -1) {
 		obj_client.peers[0, 0] = instance_create_depth(_x, _y, 100, obj_peer);
-		//TODO: send usernames to clients (maybe create a packet that's sent once to all peers notifying player join)
-		//for now we just check if we're getting an update about a player for the first time
-		//obj_client.peers[i, 1] = _username;
 	}
 	
 	if abs(obj_client.peers[0, 0].x - _x) > (obj_player.velocity * 2) + 1 {
@@ -73,11 +71,9 @@ else if (_id == 0) {
 	obj_client.peers[0, 0].hp = _hp;
 }
 else { //other peer
+	//create an instance of this peer if it hasn't already been done
 	if (obj_client.peers[_id, 0] == -1) {
 		obj_client.peers[_id, 0] = instance_create_depth(_x, _y, 100, obj_peer);
-		//TODO: send usernames to clients (maybe create a packet that's sent once to all peers notifying player join)
-		//for now we just check if we're getting an update about a player for the first time
-		//obj_client.peers[i, 1] = _username;
 	}
 	
 	var peer = obj_client.peers[_id, 0];
