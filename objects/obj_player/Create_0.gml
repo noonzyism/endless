@@ -13,7 +13,7 @@ weapon = Weapons.ASSAULT_RIFLE;
 cooldown = false;
 
 //match-related variables
-team = true; //team? boolean (true = blue, false = red)
+team = false; //team? boolean (true = blue, false = red)
 matchscore = 0;
 kills = 0;
 deaths = 0;

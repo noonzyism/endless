@@ -11,5 +11,11 @@ var _team	= _values[1];
 
 obj_client.clientId = _id;
 obj_player.team = _team;
+if (obj_player.team == 1) {
+	obj_player.sprite_index = spr_blueguy;
+}
+else {
+	obj_player.sprite_index = spr_redguy;
+}
 
 show_debug_message("Client received id and team from server: client #" + string(obj_client.clientId) + " (team " + string(obj_player.team) + ")");

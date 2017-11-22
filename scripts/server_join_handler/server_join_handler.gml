@@ -29,12 +29,21 @@ show_debug_message("Server received join request: [" + string(obj_server.clients
 //set and send out match info for this client to all clients
 client_instance = obj_server.clients[i, 0];
 client_instance.team = (client_id % 2); //for now this is just a way to alternate which team clients get assigned to
+if (client_instance.team == 1) {
+	client_instance.sprite_index = spr_blueguy;
+}
+else {
+	client_instance.sprite_index = spr_redguy;
+}
 client_instance.username = _username;
 
 netplay_send(_session, _socket, Packets.ACCEPT, client_id, client_instance.team);
 
-//tell all clients about the newly connected client match info
-broadcast_match(_session, client_id);
+//tell all other clients about the newly connected client match info
+broadcast_match_except(_session, client_id, _socket);
 
-//tell newly connected client about all clients match info (including self)
-flood_match(_session, _socket);
+//tell newly connected client about all clients match info
+flood_match_except(_session, _socket, client_id);
+
+//tell newly connected client about host's match info
+netplay_send(_session, _socket, Packets.MATCH, 0, obj_player.username, obj_player.team, obj_player.matchscore, obj_player.kills, obj_player.deaths, obj_player.objhold);
