@@ -1,4 +1,3 @@
-//TODO: later we're going to need an array holding each of these vars for every client
 clientId = -1;
 clientName = "";
 clientSocket = -1;
@@ -10,7 +9,7 @@ for (var i = 0; i < 9; i ++) {
 	clients[i, 2] = -1; //socket
 }
 
-//TODO: for now clients[0] is unused - the id of 0 is reserved for the server
+//for now clients[0] is unused - the id of 0 is reserved for the server
 
 //refers to last-sent SERVER state (not client)
 sent_xspeed = -1;
