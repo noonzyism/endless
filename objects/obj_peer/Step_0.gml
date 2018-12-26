@@ -27,5 +27,7 @@ if (shooting) {
 
 //for now...
 if (hp < 1) {
+	x = 128;
+	y = 128;
 	hp = 100;	
 }

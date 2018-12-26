@@ -70,7 +70,7 @@ y += yspeed;
 image_angle = mouse_dir;
 
 if mouse_check_button(mb_left) {
-	shooting = true;
+	shooting = cooldown ? false : true;
 	weapon_fire(self, par_player, mouse_x, mouse_y);
 }
 else {
@@ -79,6 +79,8 @@ else {
 
 //for now...
 if (hp < 1) {
+	x = 128;
+	y = 128;
 	hp = 100;	
 }
 

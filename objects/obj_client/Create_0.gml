@@ -27,7 +27,7 @@ netplay_add_packet_handler(session, Packets.ACCEPT, client_accept_handler);
 netplay_add_packet_handler(session, Packets.MATCH, client_match_handler);
 
 
-username = get_string("Enter a username: ", "jones");
+username = get_string("Enter a username: ", "Mr Client");
 
 obj_player.username = username;
 

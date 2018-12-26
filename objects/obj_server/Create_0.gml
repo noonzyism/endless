@@ -19,7 +19,7 @@ sent_shooting = false;
 sent_hp = 100;
 sent_angle = 999;
 
-username = get_string("Enter a username: ", "jones");
+username = get_string("Enter a username: ", "Mr Host");
 
 obj_player.username = username;
 
