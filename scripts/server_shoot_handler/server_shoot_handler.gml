@@ -27,8 +27,6 @@ peer.aimx = _aimx;
 peer.aimy = _aimy;
 
 
-//TODO: 
-// 1. for now this sync packet will simply send the client his current official state as a reply
-//    later, this sync packet should include info on EVERY user in the match and be sent at regular intervals (multi-client task)
-// 2. right now, we pass in an id=1 to indicate the client and id=0 to indicate the server - this should be changed to be dynamic (multi-client task)
+//for now this sync packet will simply send the client his current official state as a reply
+//right now, we pass in an id=1 to indicate the client and id=0 to indicate the server
 broadcast_sync(_session, _cid);

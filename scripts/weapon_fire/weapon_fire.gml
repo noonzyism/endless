@@ -8,8 +8,8 @@ var aimy	= argument3;
 var xslope = aimx - shooter.x;
 var yslope = aimy - shooter.y;
 
-//TODO: right now, we just calc from the player origin to an arbitrarily far away point along the line
-//we should change this to get the point along the line that intersects with the view boundary
+//right now, we just calc from the player origin to an arbitrarily far away point along the line
+//one could change this to get the point along the line that intersects with the view boundary
 
 if (shooter.weapon == Weapons.ASSAULT_RIFLE) {
 	if (shooter.cooldown == false) {

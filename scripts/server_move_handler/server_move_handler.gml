@@ -19,10 +19,8 @@ peer.xspeed = _xspeed;
 peer.yspeed = _yspeed;
 
 
-//TODO: 
-// 1. for now this sync packet will simply send the client his current official state as a reply
-//    later, this sync packet should include info on EVERY user in the match and be sent at regular intervals (multi-client task)
-// 2. right now, we pass in an id=1 to indicate the client and id=0 to indicate the server - this should be changed to be dynamic (multi-client task)
+// for now this sync packet will simply send the client his current official state as a reply
+// right now, we pass in an id=1 to indicate the client and id=0 to indicate the server - this should be changed to be dynamic (multi-client task)
 //netplay_send(_session, _socket, Packets.SYNC, _cid, peer.hp, peer.x, peer.y, peer.xspeed, peer.yspeed, peer.shooting, 0, 0);
 
 broadcast_sync(_session, _cid);

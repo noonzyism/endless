@@ -9,6 +9,11 @@ https://github.com/AndrewBGM/netplay [MIT License]
 
 This project builds upon these scripts to implement a basic shooter game with server/client HP and position syncing.
 
+collision_line_first script taken from GMLscripts.com [GMLscripts.com/license]
+
+
+-------
+
 Testing/Running:
 
 Open up two instances of GMS or the executable itself, start one as Server and join as Client on the other.

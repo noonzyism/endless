@@ -29,12 +29,3 @@ if (abs(curr_angle - sent_angle) > 15) {
 	sent_angle = curr_angle;
 	broadcast_server_sync(session);
 }
-
-//TODO: don't spam the shit out of clients with everyone's current status every step event - instead just keep track of changes in an annoyingly large array/matrix and send as necessary
-//send client state to clients (keeping track of last-sent variables for each client-client pair is going to get messy - going to need an NxN table where N=number of clients)
-/*
-var i = 1;
-while (clients[i, 0] != -1) {
-	broadcast_sync(session, i);
-}
-*/

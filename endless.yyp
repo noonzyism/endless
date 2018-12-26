@@ -263,14 +263,6 @@
             }
         },
         {
-            "Key": "380f1526-812b-45bb-ab7e-3a412390ec62",
-            "Value": {
-                "id": "5e77e557-e036-4047-b94d-014446dc3d18",
-                "resourcePath": "scripts\\draw_bullet_particles\\draw_bullet_particles.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "38562695-554f-42c8-b3e3-4064bbd043d7",
             "Value": {
                 "id": "6d0cfcd4-62ea-46b7-8f7c-1dd7ebd5d528",
@@ -972,7 +964,6 @@
         "12d9a4b7-0a23-44ba-a5e7-70c7db3b8d48",
         "3645da34-759b-4351-a097-07dea02c0ea1",
         "f8002842-86ff-4dc9-b3ab-1daa0e6388fb",
-        "380f1526-812b-45bb-ab7e-3a412390ec62",
         "ad929a4a-d08c-48c0-81f8-a22d94b7fe61",
         "eb7953bb-6111-4e6b-b138-e2d8f7fe70b9",
         "23ef5589-6583-41de-ba50-0d2a150e3c10"
